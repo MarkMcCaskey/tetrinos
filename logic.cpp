@@ -10,8 +10,6 @@ struct coords
   int y;
 };
 
-//TODO: figure out classes and implement functions as methods of object as opposed to pointers
-
 class block
 {
 public:
@@ -298,37 +296,3 @@ block::rotate( void )
     }
 }
 
-struct block *newLongBlock( void )
-{
-  struct block b = new struct block();
-  b.coord = new struct coords[4];
-  b.type = Block_Type::longB; 
-
-  for( int i = 0; ; ++i )
-    {
-      b.coord[i].x = 0;
-      b.coord[i].y = 0;
-    }
-}
-
- struct block *newLeftLBlock( void )
- {
-   struct block b = new struct block();
-   b.coord = new struct coords[4];
-   b.type = Block_Type::leftL;
-
-   for( int i = 0; ; ++i )
-     {
-       b.coord[i].x = 0;
-       b.coord[i].y = 0;
-     }
- }
-
-struct block rotate( struct block * b )
-{
-  switch( b->type )
-    {
-      //TODO: add rotation based on block or implement generic rotation function
-    }
-
-}
