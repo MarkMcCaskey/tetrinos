@@ -278,21 +278,25 @@ block::rotate( void )
 	}
       break;
     case Block_Type::rightN:
-      switch( orientation )
+      if( orientation == 0 )
 	{
-	case 0:
+	  //+ and - for y may be reversed on all other rotations
+	  //test later
+	  coord[0].y -= 2;
+	  coord[1].y--;
+	  coord[1].x--;
+	  coord[3].x--;
+	  coord[3].y++;
 	  orientation++;
-	  break;
-	case 1:
-	  orientation++;
-	  break;
-	case 2:
-	  orientation++;
-	  break;
-	case 3:
-	  orientation = 0;
-	  break;
-	}
+	} else {
+	coord[0].y += 2;
+	coord[1].y++;
+	coord[1].x++;
+	coord[3].x++;
+	coord[3].y--;
+	orientation = 0;
+      }
+      break;
     }
 }
 
