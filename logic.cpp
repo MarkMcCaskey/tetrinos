@@ -1,27 +1,4 @@
-#include <cstdlib>
-#include <iostream>
-
-enum class Block_Type : char { longB, leftL, rightL, square, leftN, pyramid, rightN };
-enum class Block_Color : char { red, blue, green, white };
-
-struct coords
-{
-  int x;
-  int y;
-};
-
-class block
-{
-public:
-  struct coords coord[4];
-  Block_Type type;
-  Block_Color color;
-private:
-  int orientation;
-  
-  
-  //add color?
-};
+#include "logic.h"
 
 block::block( int num )
 {
@@ -32,7 +9,7 @@ block::block( int num )
 
   switch( type ){
   case Block_Type::longB:
-    for( i : coord )
+    for( int i = 0; i < 4; ++i )
       {
 	coord[i].x = (4+i);
 	coord[i].y = 21; //change to macro or const for max height of place
@@ -101,39 +78,39 @@ block::block( int num )
   }
 }
   
-block::moveDown( void )
+void block::moveDown( void )
 {
-  for( i : coord )
+  for( int i = 0; i < 4; ++i )
     {
       //Intersection check
       coord[i].y--;
     }
 }
 
-block::moveRight( void )
+void block::moveRight( void )
 {  
-  for( i : coord )
+  for( int i = 0; i < 4; ++i )
     {
       //Intersection check
       coord[i].x++;
     }
 }
 
-block::moveLeft( void )
+void block::moveLeft( void )
 {  
-  for( i : coord )
+  for( int i = 0; i < 4; ++i )
     {
       //Intersection check
       coord[i].x--;
     }
 }
 
-block::rotate( void )
+void block::rotate( void )
 {
   switch( type )
     {
     case Block_Type::longB:
-      if( orientation = 0 )
+      if( orientation == 0 )
 	{
 	coord[0].x = coord[2].x = coord[3].x = coord[1].x; 
 	coord[0].y = coord[1].y;
