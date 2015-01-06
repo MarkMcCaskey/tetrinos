@@ -122,7 +122,7 @@ void block::rotate( void )
 	coord[0].x = coord[1].x - 1;
 	coord[2].x = coord[1].x + 1;
 	coord[3].x = coord[2].x + 1;
-	coord[0].y = coord[2].y = coord[3].y = coord[1].y;
+	coord[1].y = coord[2].y = coord[3].y = coord[0].y;
 	orientation = 0;
       }
       break;

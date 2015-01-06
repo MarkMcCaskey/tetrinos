@@ -16,14 +16,15 @@ public:
   struct coords* coord;
   Block_Type type;
   Block_Color color;
-private:
+ 
+  block( int );
+  void moveDown( void );
+  void moveRight( void );
+  void moveLeft( void );
+  void rotate( void ); 
+
+ private:
   int orientation;
-  
-block( int num );
-void moveDown( void );
-void moveRight( void );
-void moveLeft( void );
-void rotate( void ); 
   
   //add color?
 };
