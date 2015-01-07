@@ -27,6 +27,8 @@ int rotationTest( void )
     {
       auto b1 = new block( i );
       
+      std::cout << i << " {" << std::endl;
+
       printCoords( b1 );
       b1->rotate();
       printCoords( b1 );
@@ -37,6 +39,8 @@ int rotationTest( void )
       b1->rotate();
       printCoords( b1 );
 
+      std::cout << "}" << std::endl;
+      
       delete b1;
     }
 
