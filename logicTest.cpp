@@ -14,7 +14,7 @@ int main( void )
 
 void printCoords( block *b )
 {
-  for( int i = 0; i < 4; ++i )
+  for( int i = 0; i < PIECES_PER_BLOCK; ++i )
     {
       std::cout << i << "(" << b->coord[i].x << "," << b->coord[i].y << ")" << std::endl;
     }
@@ -23,7 +23,7 @@ void printCoords( block *b )
 
 int rotationTest( void )
 {
-  for( int i = 0; i < 5; ++i )
+  for( int i = 0; i < NUM_TYPES_OF_BLOCKS; ++i )
     {
       auto b1 = new block( i );
       

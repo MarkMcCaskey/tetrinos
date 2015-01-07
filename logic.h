@@ -1,6 +1,9 @@
 #include <cstdlib>
 #include <iostream>
 
+#define NUM_TYPES_OF_BLOCKS 7
+#define PIECES_PER_BLOCK 4
+
 enum class Block_Type : char { longB, leftL, rightL, square, leftN, pyramid, rightN };
 enum class Block_Color : char { red, blue, green, white };
 

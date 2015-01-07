@@ -2,9 +2,9 @@
 
 block::block( int num )
 {
-  type = static_cast<Block_Type>( num % 7 ); //replace 7 with macro or const
-  coord = new struct coords[4];
-  color = static_cast<Block_Color>( num % 4 ); //replace 4 with macro or const
+  type = static_cast<Block_Type>( num % NUM_TYPES_OF_BLOCKS );
+  coord = new struct coords[PIECES_PER_BLOCK];
+  color = static_cast<Block_Color>( num % PIECES_PER_BLOCK );
   orientation = 0;
 
   switch( type ){
@@ -80,7 +80,7 @@ block::block( int num )
   
 void block::moveDown( void )
 {
-  for( int i = 0; i < 4; ++i )
+  for( int i = 0; i < PIECES_PER_BLOCK; ++i )
     {
       //Intersection check
       coord[i].y--;
@@ -89,7 +89,7 @@ void block::moveDown( void )
 
 void block::moveRight( void )
 {  
-  for( int i = 0; i < 4; ++i )
+  for( int i = 0; i < PIECES_PER_BLOCK; ++i )
     {
       //Intersection check
       coord[i].x++;
@@ -98,7 +98,7 @@ void block::moveRight( void )
 
 void block::moveLeft( void )
 {  
-  for( int i = 0; i < 4; ++i )
+  for( int i = 0; i < PIECES_PER_BLOCK; ++i )
     {
       //Intersection check
       coord[i].x--;
