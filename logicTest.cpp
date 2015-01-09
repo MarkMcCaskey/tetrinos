@@ -23,26 +23,26 @@ void printCoords( block *b )
 
 int rotationTest( void )
 {
+  bool success = true;
   for( int i = 0; i < NUM_TYPES_OF_BLOCKS; ++i )
     {
       auto b1 = new block( i );
-      
-      std::cout << i << " {" << std::endl;
+      auto b2 = new block( i );;
+      success = true;
 
-      printCoords( b1 );
-      b1->rotate();
-      printCoords( b1 );
-      b1->rotate();
-      printCoords( b1 );
-      b1->rotate();
-      printCoords( b1 );
-      b1->rotate();
-      printCoords( b1 );
+      for( int j = 0; j < 4; ++j )
+	{
+	  b2->rotate();
+	}
+      for( int j = 0; j < 4; ++j )
+	{
+	  success = success && b1->coord[j].x == b2->coord[j].x && b1->coord[j].y == b2->coord[j].y; 
+	}
+     
+      std::cout << i << ": " << success << std::endl;
 
-      std::cout << "}" << std::endl;
-      
       delete b1;
     }
 
-  return 1;
+  return success;
 }
