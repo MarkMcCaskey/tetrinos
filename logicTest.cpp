@@ -3,8 +3,9 @@
 #include <cstdlib>
 
 int main( void );
-void printCoords( block* b );
+void printCoords( block* );
 int rotationTest( void );
+void printBlock( block* );
 
 int main( void )
 {
@@ -33,6 +34,7 @@ int rotationTest( void )
       for( int j = 0; j < 4; ++j )
 	{
 	  b2->rotate();
+	  printBlock( b2 );
 	}
       for( int j = 0; j < 4; ++j )
 	{
@@ -45,4 +47,27 @@ int rotationTest( void )
     }
 
   return success;
+}
+
+void printBlock( block *b )
+{
+  for( int y = 20; y < 25; ++y )
+    {
+      for( int x = 4; x < 9; ++x )
+	{
+	  for( int i = 0; i < 4; ++i )
+	    {
+	      if( b->coord[i].x == x && b->coord[i].y == y)
+		{
+		  std::cout << "X";
+		  break;
+		} else if( i == 3 )
+		{
+		  std::cout << "_";
+		}
+	    }
+	}
+      std::cout << std::endl;
+    }
+  std::cout << std::endl;
 }
