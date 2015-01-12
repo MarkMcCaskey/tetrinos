@@ -4,12 +4,27 @@
 
 int main( void );
 void printCoords( block* );
-int rotationTest( void );
+bool rotationTest( bool );
 void printBlock( block* );
+bool collisionTest( bool );
 
-int main( void )
+int main( void ) //add verbosity flag
 {
-  std::cout << "Rotation Test : " << (rotationTest())? "PASSED\n" : "FAILED\n";
+  bool rt;
+  bool ct;
+
+  bool verbose = true;
+  
+  std::cout << "Rotation Test : ";
+  rt = rotateTest( verbose );
+  
+  std::cout << std::endl << "Collision Test : ";
+  ct = collisionTest( verbose );
+
+  std::cout << std::endl << "Overall results : " << std::endl;
+  std::cout << "Rotation Test : " << rt ? "PASSED" : "FAILED" << std::endl;
+  std::cout << "Collision Test : " << ct ? "PASSED" : "FAILED" << std::endl; 
+
   exit( EXIT_SUCCESS );
 }
 
@@ -22,7 +37,7 @@ void printCoords( block *b )
   std::cout << std::endl;
 }
 
-int rotationTest( void )
+bool rotationTest( bool verbose )
 {
   bool success = true;
   for( int i = 0; i < NUM_TYPES_OF_BLOCKS; ++i )
@@ -34,14 +49,15 @@ int rotationTest( void )
       for( int j = 0; j < 4; ++j )
 	{
 	  b2->rotate();
-	  printBlock( b2 );
+	  if( verbose )
+	    printBlock( b2 );
 	}
       for( int j = 0; j < 4; ++j )
 	{
 	  success = success && b1->coord[j].x == b2->coord[j].x && b1->coord[j].y == b2->coord[j].y; 
 	}
-     
-      std::cout << i << ": " << success << std::endl;
+      if( verbose )
+	std::cout << i << ": " << success << std::endl;
 
       delete b1;
     }
@@ -70,4 +86,9 @@ void printBlock( block *b )
       std::cout << std::endl;
     }
   std::cout << std::endl;
+}
+
+bool collisionTest( bool verbose )
+{
+  return false;
 }
