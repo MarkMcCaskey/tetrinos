@@ -1,6 +1,6 @@
 #include <cstdlib>
 #include <iostream>
-#include <assert>
+#include <assert.h>
 
 #define NUM_TYPES_OF_BLOCKS 7
 #define PIECES_PER_BLOCK 4
@@ -39,7 +39,7 @@ public:
 class board
 {
 public:
-	bool xy[][];
+	bool xy[10][24];
 
 	board( void );
 	bool clearLines( void );

@@ -279,7 +279,7 @@ void block::rotate( void )
 
 board::board( void )
 {
-  xy = new bool[BOARD_WIDTH][BOARD_HEIGHT];
+  //  xy = new bool[BOARD_WIDTH][BOARD_HEIGHT];
   score = 0;
 }
 

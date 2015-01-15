@@ -16,14 +16,14 @@ int main( void ) //add verbosity flag
   bool verbose = true;
   
   std::cout << "Rotation Test : ";
-  rt = rotateTest( verbose );
+  rt = rotationTest( verbose );
   
   std::cout << std::endl << "Collision Test : ";
   ct = collisionTest( verbose );
 
   std::cout << std::endl << "Overall results : " << std::endl;
-  std::cout << "Rotation Test : " << rt ? "PASSED" : "FAILED" << std::endl;
-  std::cout << "Collision Test : " << ct ? "PASSED" : "FAILED" << std::endl; 
+  std::cout << "Rotation Test : " << (rt ? "PASSED" : "FAILED") << std::endl;
+  std::cout << "Collision Test : " << (ct ? "PASSED" : "FAILED") << std::endl; 
 
   exit( EXIT_SUCCESS );
 }
