@@ -7,11 +7,13 @@ void printCoords( block* );
 bool rotationTest( bool );
 void printBlock( block* );
 bool collisionTest( bool );
+bool fallingTest( bool );
 
 int main( void ) //add verbosity flag
 {
   bool rt;
   bool ct;
+  bool ft;
 
   bool verbose = true;
   
@@ -20,10 +22,14 @@ int main( void ) //add verbosity flag
   
   std::cout << std::endl << "Collision Test : ";
   ct = collisionTest( verbose );
+  
+  std::cout << std::endl << "Falling Test : ";
+  ft = fallingTest( verbose );
 
   std::cout << std::endl << "Overall results : " << std::endl;
   std::cout << "Rotation Test : " << (rt ? "PASSED" : "FAILED") << std::endl;
   std::cout << "Collision Test : " << (ct ? "PASSED" : "FAILED") << std::endl; 
+  std::cout << "Falling Test : " << (ft ? "PASSED" : "FAILED") << std::endl;
 
   exit( EXIT_SUCCESS );
 }
@@ -89,6 +95,11 @@ void printBlock( block *b )
 }
 
 bool collisionTest( bool verbose )
+{
+  return false;
+}
+
+bool fallingTest( bool verbose )
 {
   return false;
 }
