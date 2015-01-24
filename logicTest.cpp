@@ -96,10 +96,25 @@ void printBlock( block *b )
 
 bool collisionTest( bool verbose )
 {
+  bool ret = true;
   return false;
 }
 
 bool fallingTest( bool verbose )
 {
-  return false;
+  bool ret = true;
+  for( int i = 0; i < NUM_TYPES_OF_BLOCKS; ++i )
+    {
+      auto b1 = new block( i );
+      auto b2 = new block( i );
+      
+      b1->moveDown();
+      //create general comparison funcion
+      for( int j = 0; j < PIECES_PER_BLOCK; ++j )
+	{
+	  ret = ret && b1->coord->x == b2->coord->x &&
+	    b1->coord->y + 1 == b2->coord->y;
+	}
+    }
+  return ret;
 }
