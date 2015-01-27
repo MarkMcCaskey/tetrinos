@@ -29,6 +29,7 @@ public:
   void moveRight( void );
   void moveLeft( void );
   void rotate( void ); 
+  void reset( void );
 
  private:
   int orientation;
@@ -40,7 +41,7 @@ class board
 {
 public:
 	bool xy[10][24];
-
+        std::vector<block> block_store; //maybe hash map?
 	board( void );
 	bool clearLines( void );
 	void addScore( int );
