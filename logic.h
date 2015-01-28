@@ -45,6 +45,7 @@ public:
 	board( void );
 	bool clearLines( void );
 	void addScore( int );
+        void newBlock( void );
 private:
 	long score;
 	void moveDown( int );

@@ -59,3 +59,9 @@ void board::moveDown( int line )
 	}
     }
 }
+
+void board::newBlock( void )
+{
+  block blo = new block( random() % NUM_TYPES_OF_BLOCKS );
+  block_store.insert( blo );
+}
