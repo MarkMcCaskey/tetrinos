@@ -9,6 +9,7 @@ bool rotationTest( bool );
 void printBlock( block* );
 bool collisionTest( bool );
 bool fallingTest( bool );
+bool boardHandling( bool );
 
 int main( int argc, char** argv )
 {
@@ -143,6 +144,19 @@ bool fallingTest( bool verbose )
 	  std::cout << i << ": " << (ret? "TRUE":"FALSE") << std::endl;
 	}
 
+    }
+  return ret;
+}
+
+bool boardHandling( bool verbose )
+{
+  bool ret = true;
+  board bo = new board();
+  
+  bo.newBlock();
+  for( int i = 0; i < 10; ++i )
+    {
+      bo.advanceBlock();
     }
   return ret;
 }

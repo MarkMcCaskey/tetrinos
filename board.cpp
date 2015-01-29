@@ -63,5 +63,11 @@ void board::moveDown( int line )
 void board::newBlock( void )
 {
   block blo = new block( random() % NUM_TYPES_OF_BLOCKS );
+  current_block = blo;
   block_store.insert( blo );
+}
+
+void board::advanceBlock( void )
+{
+  current_block.moveDown();
 }
