@@ -30,6 +30,7 @@ public:
   void moveLeft( void );
   void rotate( void ); 
   void reset( void );
+  bool collision( void );
 
  private:
   int orientation;
@@ -46,7 +47,9 @@ public:
 	bool clearLines( void );
 	void addScore( int );
         void newBlock( void );
+	void advanceBlock( void );
 private:
+	block active_block;
 	long score;
 	void moveDown( int );
 };

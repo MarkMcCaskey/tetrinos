@@ -349,3 +349,12 @@ void block::reset( void )
     break;
   }
 }
+
+bool block::collision( void )
+{
+    if( coord.y <= 0 )
+	return true;
+    //other collision detection here
+
+    return false;
+}
