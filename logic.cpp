@@ -352,8 +352,11 @@ void block::reset( void )
 
 bool block::collision( void )
 {
-    if( coord.y <= 0 )
+  for( int i = 0; i < PIECES_PER_BLOCK; ++i )
+    {
+      if( coord[i].y <= 0 )
 	return true;
+    }
     //other collision detection here
 
     return false;
