@@ -88,6 +88,7 @@ bool rotationTest( bool verbose )
 	std::cout << i << ": " << success << std::endl;
 
       delete b1;
+      delete b2;
     }
 
   return retSuccess;
@@ -143,7 +144,8 @@ bool fallingTest( bool verbose )
         {
 	  std::cout << i << ": " << (ret? "TRUE":"FALSE") << std::endl;
 	}
-
+      delete b1;
+      delete b2;
     }
   return ret;
 }
@@ -151,12 +153,13 @@ bool fallingTest( bool verbose )
 bool boardHandling( bool verbose )
 {
   bool ret = true;
-  board bo = new board();
+  auto bo = new board();
   
-  bo.newBlock();
+  bo->newBlock();
   for( int i = 0; i < 10; ++i )
     {
-      bo.advanceBlock();
+      bo->advanceBlock();
     }
+  delete bo;
   return ret;
 }

@@ -1,6 +1,7 @@
 #include <cstdlib>
 #include <iostream>
 #include <assert.h>
+#include <vector>
 
 #define NUM_TYPES_OF_BLOCKS 7
 #define PIECES_PER_BLOCK 4
@@ -42,7 +43,7 @@ class board
 {
 public:
 	bool xy[10][24];
-        std::vector<block> block_store; //maybe hash map?
+	std::vector<block> block_store; //maybe hash map?
 	board( void );
 	bool clearLines( void );
 	void addScore( int );
