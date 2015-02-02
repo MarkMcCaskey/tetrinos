@@ -120,7 +120,16 @@ void printBlock( block *b )
 bool collisionTest( bool verbose )
 {
   bool ret = true;
-  return false;
+  auto bo = new board();
+  bo.newBlock();
+  for( int i = 0; i< BOARD_HEIGHT * 2; ++i )
+    {
+      if( bo->active_block.collision() )
+	break;
+      b->advanceBlock();
+    }
+  
+  return ret;
 }
 
 bool fallingTest( bool verbose )
