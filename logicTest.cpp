@@ -14,6 +14,9 @@ bool boardHandling( bool );
 int main( int argc, char** argv )
 {
   bool verbose = false;
+  bool rton = false;
+  bool cton = false;
+  bool fton = false;
   int opt;
 
   while( (opt = getopt( argc, argv, "v") ) != -1 )
@@ -22,6 +25,20 @@ int main( int argc, char** argv )
 	{
 	case 'v':
 	  verbose = true;
+	  break;
+	case 'r':
+	  rton = true;
+	  break;
+	case 'c':
+	  cton = true;
+	  break;
+	case 'f':
+	  fton = true;
+	  break;
+	case 'a':
+	  rton = true;
+	  cton = true;
+	  fton = true;
 	  break;
 	default:
 	  fprintf( stderr, "Usage: %s -v", argv[0] );
@@ -32,24 +49,36 @@ int main( int argc, char** argv )
   bool rt;
   bool ct;
   bool ft;
+  
+  if( rton )
+    {
+      if( verbose )
+	std::cout << "Rotation Test : ";
+      rt = rotationTest( verbose );
+    }
+  
+  if( cton )
+    {
+      if( verbose )
+	std::cout << std::endl << "Collision Test : ";
+      ct = collisionTest( verbose );
+    }
+  
+  if( fton )
+    {
+      if( verbose )
+	std::cout << std::endl << "Falling Test : ";
+      ft = fallingTest( verbose );
+    }
 
-  if( verbose )
-    std::cout << "Rotation Test : ";
-  rt = rotationTest( verbose );
-  
-  if( verbose )
-    std::cout << std::endl << "Collision Test : ";
-  ct = collisionTest( verbose );
-  
-  if( verbose )
-    std::cout << std::endl << "Falling Test : ";
-  ft = fallingTest( verbose );
-
-  std::cout << "Rotation Test : " << (rt ? "PASSED" : "FAILED") << std::endl;
-  std::cout << "Collision Test : " << (ct ? "PASSED" : "FAILED") << std::endl; 
-  std::cout << "Falling Test : " << (ft ? "PASSED" : "FAILED") << std::endl;
-  
-  std::cout << std::endl << "Overall results : " << std::endl;
+  if( rton )
+    std::cout << "Rotation Test : " << (rt ? "PASSED" : "FAILED") << std::endl;
+  if( cton )
+    std::cout << "Collision Test : " << (ct ? "PASSED" : "FAILED") << std::endl; 
+  if( fton )
+    std::cout << "Falling Test : " << (ft ? "PASSED" : "FAILED") << std::endl;
+  if( rton || cton || fton )
+    std::cout << std::endl << "Overall results : " << std::endl;
 
   exit( EXIT_SUCCESS );
 }
