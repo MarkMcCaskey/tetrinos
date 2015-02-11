@@ -117,6 +117,7 @@ bool rotationTest( bool verbose )
 	std::cout << i << ": " << success << std::endl;
 
       delete b1;
+      delete b2;
     }
 
   return retSuccess;
@@ -148,7 +149,16 @@ void printBlock( block *b )
 bool collisionTest( bool verbose )
 {
   bool ret = true;
-  return false;
+  auto bo = new board();
+  bo.newBlock();
+  for( int i = 0; i< BOARD_HEIGHT * 2; ++i )
+    {
+      if( bo->active_block.collision() )
+	break;
+      b->advanceBlock();
+    }
+  
+  return ret;
 }
 
 bool fallingTest( bool verbose )
@@ -172,7 +182,8 @@ bool fallingTest( bool verbose )
         {
 	  std::cout << i << ": " << (ret? "TRUE":"FALSE") << std::endl;
 	}
-
+      delete b1;
+      delete b2;
     }
   return ret;
 }
@@ -180,12 +191,13 @@ bool fallingTest( bool verbose )
 bool boardHandling( bool verbose )
 {
   bool ret = true;
-  board bo = new board();
+  auto bo = new board();
   
-  bo.newBlock();
+  bo->newBlock();
   for( int i = 0; i < 10; ++i )
     {
-      bo.advanceBlock();
+      bo->advanceBlock();
     }
+  delete bo;
   return ret;
 }

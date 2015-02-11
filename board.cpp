@@ -69,5 +69,5 @@ void board::newBlock( void )
 
 void board::advanceBlock( void )
 {
-  current_block.moveDown();
+  active_block.moveDown();
 }
