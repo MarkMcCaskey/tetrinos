@@ -49,8 +49,8 @@ public:
 	void addScore( int );
         void newBlock( void );
 	void advanceBlock( void );
-private:
 	block active_block;
+private:
 	long score;
 	void moveDown( int );
 };

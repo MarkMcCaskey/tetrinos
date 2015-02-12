@@ -150,12 +150,12 @@ bool collisionTest( bool verbose )
 {
   bool ret = true;
   auto bo = new board();
-  bo.newBlock();
+  bo->newBlock();
   for( int i = 0; i< BOARD_HEIGHT * 2; ++i )
     {
       if( bo->active_block.collision() )
 	break;
-      b->advanceBlock();
+      bo->advanceBlock();
     }
   
   return ret;
