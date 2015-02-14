@@ -1,13 +1,13 @@
-#-----------------------------------------------------------------
+#--------------------------------------------------------------------	
 #Provisional Makefile, not yet tested
-#-----------------------------------------------------------------
+#--------------------------------------------------------------------	
 
 CC   = g++
-OPTS = -std=c++11 -g -Wall -O3
+OPTS = -std=c++11 -Wall -O3
 
 SRCS= src/logic.cpp src/main.cpp src/board.cpp src/graphics.cpp
-SUBDIRS = . 
-INCLUDE = $(addprefix -I,$(SUBDIRS))
+SUBDIRS = . inc/
+INCLUDE = $(addprefix -I,$(SUBDIRS)) 
 OBJS=${SRCS:.cpp=.o}
 LIB = inc/
 CFLAGS   = $(OPTS) $(INCLUDE)
