@@ -3,6 +3,7 @@
 block::block( int num )
 {
   type = static_cast<Block_Type>( num % NUM_TYPES_OF_BLOCKS );
+  //destructor should handle coord
   coord = new struct coords[PIECES_PER_BLOCK];
   color = static_cast<Block_Color>( num % PIECES_PER_BLOCK );
   orientation = 0;
@@ -82,7 +83,12 @@ void block::moveDown( void )
 {
   for( int i = 0; i < PIECES_PER_BLOCK; ++i )
     {
-      //Intersection check
+      if( collision )
+	{
+	  //drop this block as current block and make new block
+	  //this logic may be better suited to be in Board
+	  break;
+	}
       coord[i].y--;
     }
 }
@@ -92,6 +98,11 @@ void block::moveRight( void )
   for( int i = 0; i < PIECES_PER_BLOCK; ++i )
     {
       //Intersection check
+      if( collision )
+	{
+	  //don't move, maybe add other code here
+	  break;
+	}
       coord[i].x++;
     }
 }
@@ -101,6 +112,11 @@ void block::moveLeft( void )
   for( int i = 0; i < PIECES_PER_BLOCK; ++i )
     {
       //Intersection check
+      if( collision )
+	{
+	  //don't move, maybe add other code here
+	  break;
+	}
       coord[i].x--;
     }
 }
@@ -350,11 +366,23 @@ void block::reset( void )
   }
 }
 
+/*
+ * More sophisticated cd is needed
+ * study this topic
+ */
 bool block::collision( void )
 {
   for( int i = 0; i < PIECES_PER_BLOCK; ++i )
     {
+      //check for pieces outside board
+      assert( coord[i].y >= 0 && coord[i].y <= BOARD_HEIGHT );
+      assert( coord[i].x >= 0 && coord[i].x <= BOARD_WIDTH );
+
       if( coord[i].y <= 0 )
+	return true;
+      if( coord[i].x <= 0 )
+	return true;
+      if( coord[i].x >= BOARD_WIDTH )
 	return true;
     }
     //other collision detection here

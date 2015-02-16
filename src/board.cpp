@@ -67,6 +67,7 @@ void board::newBlock( void )
   block_store.insert( blo );
 }
 
+//not sure if this function is needed
 void board::advanceBlock( void )
 {
   active_block.moveDown();
