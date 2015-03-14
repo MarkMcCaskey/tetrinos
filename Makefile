@@ -13,7 +13,7 @@ LIB = inc/
 CFLAGS   = $(OPTS) $(INCLUDE)
 TARGET = bin/game
 
-SRCS_TEST = src/logic.cpp src/board.cpp src/logicTest.cpp
+SRCS_TEST = src/logic.cpp src/board.cpp test/logicTest.cpp
 OBJS_TEST=${SRCS_TEST:.cpp=.o}
 TARGET_TEST = bin/test
 
