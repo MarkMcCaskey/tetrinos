@@ -1,6 +1,6 @@
 #include "graphics.h"
 
-void setUpNcruses( void )
+void graphics::setUp( void )
 {
     /*
      * non-trivial sections of code here are from
@@ -15,7 +15,7 @@ void setUpNcruses( void )
 
 }
 
-void updateScreen( void )
+void graphics::refresh( void )
 {
 
     //Maybe put input logic somewhere else
@@ -36,7 +36,7 @@ void updateScreen( void )
     
 }
 
-void shutDownNcurses( void )
+void graphics::shutDown( void )
 {
     endwin();
 }

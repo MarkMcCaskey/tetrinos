@@ -1,9 +1,9 @@
 #include <ncurses.h>
 
-void updateScreen( /******/ );
-
-void drawScreen( /******/ );
-
-void setUpNcurses( void );
-
-void shutDownNcurses( void );
+class graphics{
+public:
+	void refresh();
+	void drawScreen();
+	void setUp();
+	void shutDown();
+};
