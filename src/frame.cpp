@@ -16,3 +16,8 @@ void Frame::add(char c, int x, int y)
 {
     mvaddch(window, x, y, c);   
 }
+
+void Frame::refresh()
+{
+  wrefresh(window);
+}

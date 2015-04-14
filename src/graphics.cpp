@@ -17,23 +17,7 @@ void graphics::setUp( void )
 
 void graphics::refresh( void )
 {
-
-    //Maybe put input logic somewhere else
-    int ch;
-
-    ch = getch();
-
-    switch( ch )
-    {
-    case 'q':
-    case 'Q':
-	shutDownNcurses();
-	break;
-    default:
-	break;
-	
-    }
-    
+  std::for_each(frames.begin(),frames.end(),&Frame::refresh);
 }
 
 void graphics::shutDown( void )
